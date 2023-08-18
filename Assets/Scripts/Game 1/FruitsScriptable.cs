@@ -16,4 +16,6 @@ public class FruitsScriptable : ScriptableObject
     [Range(1, 100)]
     public float speedY;
 
+    public GameObject DestroyFruit;
+
 }

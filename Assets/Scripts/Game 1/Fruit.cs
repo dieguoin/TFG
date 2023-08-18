@@ -10,7 +10,7 @@ public class Fruit : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        Destroy(gameObject, 5);
     }
     public void SetPlayer(Vector3 playerPos, FruitsScriptable fruits)
     {
@@ -18,11 +18,23 @@ public class Fruit : MonoBehaviour
         fruit = fruits;
         GetComponent<MeshRenderer>().material = fruit.fruitMaterial;
         GetComponent<MeshFilter>().mesh = fruit.fruitMesh;
+        transform.localScale = new Vector3(fruit.size, fruit.size, fruit.size);
         Init();
     }
-
+    
     private void Init()
     {
         rb.AddForce(fruit.speed * (playerPosition - transform.position) + new Vector3(0, fruit.speedY, 0));
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Knife")
+        {
+            GameObject.Instantiate(fruit.DestroyFruit, transform.position, new Quaternion(0, 0, 0, 0));
+            Destroy(gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
     }
 }
