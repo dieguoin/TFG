@@ -282,7 +282,7 @@
                 {
                     "name": "Pause",
                     "type": "Button",
-                    "id": "5a45e0b9-59f5-4aba-a065-5c3c0392151d",
+                    "id": "82227b1b-5d05-4209-9c0f-5e906eea74ec",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -468,8 +468,8 @@
                 },
                 {
                     "name": "",
-                    "id": "7bf88657-a7ef-444a-ab70-53f51ad999fd",
-                    "path": "<XRController>{LeftHand}/menu",
+                    "id": "bdbf264d-b759-4a41-89e5-07dae22af719",
+                    "path": "<XRController>{LeftHand}/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -1,0 +1,15 @@
+[
+  {
+    "username": "Diego",
+    "spawnTime": 0.0,
+    "fruitSize": 0.0,
+    "knifeSize": 0.0,
+    "series": 0.0,
+    "repetitions": 0.0,
+    "cookieSpeed": 0.0,
+    "timeLimit": 0.0,
+    "spawnDistance": 0.0,
+    "dispertion": "aleatorio",
+    "angle": 100
+  }
+]

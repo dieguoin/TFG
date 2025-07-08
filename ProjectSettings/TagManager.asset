@@ -5,14 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Knife
+  - CableOrigin
+  - CableFinish
+  - Wall
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Coin
   - 
   - 
   - 

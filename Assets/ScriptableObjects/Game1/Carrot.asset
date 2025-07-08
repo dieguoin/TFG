@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitMesh: {fileID: 4970989848755135003, guid: 539003eed0bf20a4faf58b92584a662b, type: 3}
   fruitMaterial: {fileID: 2100000, guid: df7fe48a4062d5448bff2a0f1470487e, type: 2}
-  size: 0.8047587
-  speed: 40
+  size: 0.66330874
+  speed: 73.4
   speedY: 100
   DestroyFruit: {fileID: 5083215250862050334, guid: 3d0b2ee1f8b98e14f833f487fcdb6ad1, type: 3}

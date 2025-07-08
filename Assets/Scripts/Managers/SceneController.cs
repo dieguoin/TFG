@@ -27,6 +27,7 @@ public class SceneController : MonoBehaviour
     }
     public void ChangeScene(string sceneName)
     {
+        GameManager.instance.ResumeGame();
         SceneManager.LoadScene(sceneName);
     }
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)

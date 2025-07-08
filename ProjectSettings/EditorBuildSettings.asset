@@ -6,14 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MenuScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Game1.unity
+    path: Assets/Scenes/FruitNinja.unity
     guid: c16523478aa3cad41bbd73910e85e7f5
   - enabled: 1
-    path: Assets/Scenes/Game2.unity
+    path: Assets/Scenes/CableConnect.unity
     guid: baea0775943c4c24aa56a82d7dc00048
+  - enabled: 1
+    path: Assets/Scenes/Cookie.unity
+    guid: 070133d2d8ada1d418a78da8273e9e02
+  - enabled: 1
+    path: Assets/Scenes/Plane.unity
+    guid: 369eeb27110b2314f84e57ca02d2e134
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 9d41509b34642ef44b74f86a4849a4d9, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dd93dd6a124edd942b2bb2b194d699ea, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 29bfd15d083bff244a41414e466c6081, type: 2}
