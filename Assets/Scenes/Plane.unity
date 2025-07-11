@@ -671,8 +671,10 @@ MonoBehaviour:
   initGame: 0
   Canvas: {fileID: 1313768679}
   obstaclePrefab: {fileID: 1486836159292341369, guid: c6beaadb1ead702449361d5f7faa5a85, type: 3}
+  obstacleCount: 0
   Roads:
   - {fileID: 277828599}
+  randomLat: 0
 --- !u!4 &700587897
 Transform:
   m_ObjectHideFlags: 0
@@ -2141,7 +2143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1313768680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3002,6 +3004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 251637147}
+  text: {fileID: 0}
 --- !u!54 &1752594525
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3658,6 +3661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cube: {fileID: 251637147}
+  text: {fileID: 0}
 --- !u!65 &1922258671
 BoxCollider:
   m_ObjectHideFlags: 0

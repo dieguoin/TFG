@@ -49,7 +49,10 @@ public class ObstacleManager : MonoBehaviour
     [Range(0, 10)]
     public int randomLat = 0;
     private float currentSpawnTime = 5;
-    private float timer = DataManager.instance.configuracionActual.juegos.cookie_twist_vr.frecuencia_galletas;
+    private float cookieTimer = DataManager.instance.configuracionActual.juegos.cookie_twist_vr.frecuencia_galletas;
+    private float planeTimer = DataManager.instance.configuracionActual.juegos.air_ring_vr.frecuencia_anillos;
+
+    private float timer = 0;
 
     private float gameTimer = 100;
     private float currentTimer = 0;
@@ -58,6 +61,17 @@ public class ObstacleManager : MonoBehaviour
     {
         Roads[1] .position = Roads[0].position + new Vector3(0, 0, DataManager.instance.configuracionActual.juegos.cookie_twist_vr.separacion_carriles);
         Roads[2] .position = Roads[0].position + new Vector3(0, 0, -DataManager.instance.configuracionActual.juegos.cookie_twist_vr.separacion_carriles);
+
+        if(SceneController.instance.name == "Cookie")
+        {
+            gameTimer = DataManager.instance.configuracionActual.juegos.cookie_twist_vr.duracion_sesion_segundos;
+            timer = cookieTimer;
+        }
+        else if(SceneController.instance.name == "Plane")
+        {
+            //gameTimer = DataManager.instance.configuracionActual.juegos.air_ring_vr.duracion_sesion_segundos;
+            timer = planeTimer;
+        }
 
         pauseAction = myActionsAsset.FindAction("XRI LeftHand Interaction/Pause");
     }
