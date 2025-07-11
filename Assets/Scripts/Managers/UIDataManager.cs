@@ -41,20 +41,20 @@ public class UIDataManager : MonoBehaviour
 
     private void Start()
     {
-        DataManager.instance.LoadUsers();
+        //DataManager.instance.LoadUsers();
 
         SetDropdowns(1);
-        userDropdown1.onValueChanged.AddListener(DataManager.instance.ChangeUser);
+        //userDropdown1.onValueChanged.AddListener(DataManager.instance.ChangeUser);
         userDropdown1.onValueChanged.AddListener(SetDropdowns);
         userDropdown1.onValueChanged.AddListener(SetStatsToUser);
-        userDropdown2.onValueChanged.AddListener(DataManager.instance.ChangeUser);
+        //userDropdown2.onValueChanged.AddListener(DataManager.instance.ChangeUser);
         userDropdown2.onValueChanged.AddListener(SetDropdowns);
         userDropdown2.onValueChanged.AddListener(SetStatsToUser);
 
-        saveButton1.onClick.AddListener(DataManager.instance.SaveUser);
-        saveButton2.onClick.AddListener(DataManager.instance.SaveUser);
-        saveButton3.onClick.AddListener(DataManager.instance.SaveUser);
-        saveButton4.onClick.AddListener(DataManager.instance.SaveUser);
+        saveButton1.onClick.AddListener(DataManager.instance.SaveConfig);
+        saveButton2.onClick.AddListener(DataManager.instance.SaveConfig);
+        saveButton3.onClick.AddListener(DataManager.instance.SaveConfig);
+        saveButton4.onClick.AddListener(DataManager.instance.SaveConfig);
 
         spawnFrequency.onValueChanged.AddListener(ChangeSpawn);
         fruitSize.onValueChanged.AddListener(ChangeFruit);
@@ -78,17 +78,19 @@ public class UIDataManager : MonoBehaviour
         userDropdown2.options = new List<TMP_Dropdown.OptionData>();
         userDropdown3.options = new List<TMP_Dropdown.OptionData>();
         userDropdown4.options = new List<TMP_Dropdown.OptionData>();
-        userDropdown1.AddOptions(DataManager.instance.GetUsernames());
+        //userDropdown1.AddOptions(DataManager.instance.GetUsernames());
         userDropdown1.AddOptions(new List<string> { "New User +" });
-        userDropdown3.AddOptions(DataManager.instance.GetUsernames());
+        //userDropdown3.AddOptions(DataManager.instance.GetUsernames());
         userDropdown3.AddOptions(new List<string> { "New User +" });
-        userDropdown2.AddOptions(DataManager.instance.GetUsernames());
+        //userDropdown2.AddOptions(DataManager.instance.GetUsernames());
         userDropdown2.AddOptions(new List<string> { "New User +" });
-        userDropdown4.AddOptions(DataManager.instance.GetUsernames());
+        //userDropdown4.AddOptions(DataManager.instance.GetUsernames());
         userDropdown4.AddOptions(new List<string> { "New User +" });
     }
+    
     private void SetStatsToUser(int value)
     {
+        /*
         var u = DataManager.instance.currentUser;
         
         spawnFrequency.value = u.spawnTime;
@@ -97,46 +99,47 @@ public class UIDataManager : MonoBehaviour
 
         series.value = u.series;
         reps.value = u.repetitions;
+        */
     }
     private void ChangeSpawn(float value)
     {
         DataManager.instance.ChangeValue("spawnTime", value);
-        timeText.text = ((int)(1 + 9 * DataManager.instance.currentUser.spawnTime)).ToString();
+        timeText.text = ((int)(1 + 9 * DataManager.instance.configuracionActual.juegos.fruit_ninja_vr.tiempo_entre_frutas)).ToString();
     }
     private void ChangeFruit(float value)
     {
         DataManager.instance.ChangeValue("fruitSize", value);
-        fruitText.text = ((int)(1 + 9 * DataManager.instance.currentUser.fruitSize)).ToString();
+        fruitText.text = ((int)(1 + 9 * DataManager.instance.configuracionActual.juegos.fruit_ninja_vr.tamaño_fruta)).ToString();
     }
     private void ChangeKnife(float value)
     {
         DataManager.instance.ChangeValue("knifeSize", value);
-        swordText.text = ((int)(1 + 9 * DataManager.instance.currentUser.knifeSize)).ToString();
+        swordText.text = ((int)(1 + 9 * DataManager.instance.configuracionActual.juegos.fruit_ninja_vr.tamaño_cuchillo)).ToString();
     }
     private void ChangeSeries(float value)
     {
         DataManager.instance.ChangeValue("series", value);
-        seriesNumberText.text = ((int)(1 + DataManager.instance.currentUser.series * 9)).ToString();
+        seriesNumberText.text = ((int)(1 + DataManager.instance.configuracionActual.juegos.conectar_cables.numero_series * 9)).ToString();
     }
     private void ChangeReps(float value)
     {
         DataManager.instance.ChangeValue("repetitions", value);
-        cableNumberText.text = ((int)(1 + DataManager.instance.currentUser.repetitions * 9)).ToString();
+        cableNumberText.text = ((int)(1 + DataManager.instance.configuracionActual.juegos.conectar_cables.numero_repeticiones * 9)).ToString();
     }
     private void ChangeCookieSpeed(float value)
     {
         DataManager.instance.ChangeValue("cookieSpeed", value);
-        cookieSpeedText.text = ((int)(1 + DataManager.instance.currentUser.cookieSpeed * 9)).ToString();
+        cookieSpeedText.text = ((int)(1 + DataManager.instance.configuracionActual.juegos.cookie_twist_vr.frecuencia_galletas * 9)).ToString();
     }
     private void ChangeTimeLimit(float value)
     {
         DataManager.instance.ChangeValue("timeLimit", value);
-        timeLimitText.text = ((int)(1 + (int)(DataManager.instance.currentUser.timeLimit * 9) * 10)).ToString();
+        timeLimitText.text = ((int)(1 + (int)(DataManager.instance.configuracionActual.juegos.cookie_twist_vr.duracion_sesion_segundos * 9) * 10)).ToString();
     }
     private void ChangeSpawnDistance(float value)
     {
         DataManager.instance.ChangeValue("spawnDistance", value);
-        spawnDistanceText.text = ((int)(1 + DataManager.instance.currentUser.spawnDistance * 9)).ToString();
+        spawnDistanceText.text = ((int)(1 + DataManager.instance.configuracionActual.juegos.cookie_twist_vr.separacion_carriles * 9)).ToString();
     }
     private void ChangeDispertion(float value)
     {
@@ -146,6 +149,7 @@ public class UIDataManager : MonoBehaviour
     private void ChangeAngle(float value)
     {
         DataManager.instance.ChangeValue("angle", value);
-        angleText.text = (value != 1)?((int)(20 + (int)(DataManager.instance.currentUser.angle * 9)*20)).ToString(): "180";
+        angleText.text = (value != 1)?((int)(20 + (int)(DataManager.instance.configuracionActual.juegos.air_ring_vr.angulo_rotacion_maximo * 9)*20)).ToString(): "180";
     }
+    
 }

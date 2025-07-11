@@ -200,11 +200,8 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    
 
-
-    // Convierte un objeto UsuarioProgreso a JSON
-    public static string ConvertToJson(UsuarioConfiguracion data, bool prettyPrint = true)
+    public static string ConvertToJson(UsuarioProgreso data, bool prettyPrint = true)
     {
         return JsonUtility.ToJson(data, prettyPrint);
     }
@@ -216,7 +213,7 @@ public class DataManager : MonoBehaviour
     }
 
     // Guarda el JSON en un archivo (por ejemplo, en Application.persistentDataPath)
-    public static void SaveToFile(UsuarioConfiguracion data, string fileName)
+    public static void SaveToFile(UsuarioProgreso data, string fileName)
     {
         string json = ConvertToJson(data);
         string path = Path.Combine(Application.persistentDataPath, fileName);
@@ -232,6 +229,45 @@ public class DataManager : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             return ConvertFromJson(json);
+        }
+        else
+        {
+            Debug.LogWarning($"Archivo no encontrado en: {path}");
+            return null;
+        }
+    }
+
+    //configuracion
+
+    // Convierte un objeto UsuarioProgreso a JSON
+    public static string ConvertToJson(UsuarioConfiguracion data, bool prettyPrint = true)
+    {
+        return JsonUtility.ToJson(data, prettyPrint);
+    }
+
+    // Convierte un string JSON a un objeto UsuarioProgreso
+    public static UsuarioConfiguracion ConvertFromJsonConfig(string json)
+    {
+        return JsonUtility.FromJson<UsuarioConfiguracion>(json);
+    }
+
+    // Guarda el JSON en un archivo (por ejemplo, en Application.persistentDataPath)
+    public static void SaveToFile(UsuarioConfiguracion data, string fileName)
+    {
+        string json = ConvertToJson(data);
+        string path = Path.Combine(Application.persistentDataPath, fileName);
+        File.WriteAllText(path, json);
+        Debug.Log($"JSON guardado en: {path}");
+    }
+
+    // Carga JSON desde un archivo y lo convierte a UsuarioProgreso
+    public static UsuarioConfiguracion LoadFromFileConfig(string fileName)
+    {
+        string path = Path.Combine(Application.persistentDataPath, fileName);
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            return ConvertFromJsonConfig(json);
         }
         else
         {
@@ -309,6 +345,11 @@ public class DataManager : MonoBehaviour
         // Puedes cargar desde archivo aquí si lo deseas
         configuracionActual = new UsuarioConfiguracion();
         progresoActual = new UsuarioProgreso();
+    }
+    public void SaveConfig()
+    {
+        SaveToFile(configuracionActual, "user_parameters.json");
+        SaveToFile(progresoActual, "user_stats.json");
     }
 
     // Ejemplo: actualizar nombre del usuario

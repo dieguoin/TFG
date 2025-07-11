@@ -18,7 +18,7 @@ public class TravelObject : MonoBehaviour
         Init += SetPosition;
         Init += SetVelocity;
 
-        speed = DataManager.instance.currentUser.cookieSpeed;
+        speed = 1;
 
         save += ObstacleManager.instance.SaveObject;
         save += HideObject;
